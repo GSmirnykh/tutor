@@ -7,6 +7,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    #Auth
+    path('signup/', views.signup, name='signup'),
+
     path('', views.home, name='home'),
     path('addpupil/', views.add_pupil, name='add_pupil'),
     path('addcours/', views.add_cours, name='add_course'),
