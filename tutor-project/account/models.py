@@ -6,9 +6,10 @@ class Cours(models.Model):
     course_id = models.AutoField
     title = models.CharField('Название курса', max_length=50)
     description = models.TextField('Описание курса')
-    lenght = models.IntegerField('Продолжительность курса')
-    cost_individual = models.IntegerField('Стоимость индивидульного занятия')
-    cost_group = models.IntegerField('Стоимость группового занятия')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    lenght = models.IntegerField('Продолжительность курса, часов', blank=True, null=True)
+    cost_individual = models.IntegerField('Стоимость индивидульного занятия', blank=True, null=True)
+    cost_group = models.IntegerField('Стоимость группового занятия', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -26,9 +27,9 @@ class Pupil(models.Model):
     ]
     name = models.CharField('Имя', max_length=30)
     surname = models.CharField('Фамилия', max_length=30)
-    age = models.CharField('Возраст', max_length=3, null=True)
+    age = models.IntegerField('Возраст', null=True)
     parents = models.TextField('Представитель')
-    phone = models.CharField('Контактный телефон', max_length=12)
+    phone = models.IntegerField('Контактный телефон')
     education_form = models.CharField('Форма обучения', max_length=50, choices=CHOISES, default='individual')
     course = models.ForeignKey(Cours, on_delete=models.CASCADE, null=True)
 

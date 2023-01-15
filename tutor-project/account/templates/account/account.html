@@ -1,0 +1,27 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'add_pupil' %}">Добавить ученика</a>
+<br>
+<a href="{% url 'add_course' %}">Добавить курс</a>
+
+<p>Список учеников</p>
+<ul>
+    {% for pupil in pupils %}
+    <li>{{ pupil.name }} {{ pupil.surname }}</li>
+    {% endfor %}
+</ul>
+
+<p>Список курсов</p>
+<ul>
+    {% for cours in courses %}
+    <li>{{ cours.title }}</li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

@@ -17,7 +17,7 @@ def signup(request):
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('home')
+                return redirect('account')
             except IntegrityError:
                 return render(request, 'account/signup.html',
                               {'form': UserCreationForm(),
@@ -42,13 +42,17 @@ def loginuser(request):
                                                           'error': 'Неверный логин или пароль'})
         else:
             login(request, user)
-            return redirect('home')
+            return redirect('account')
 
 
 def home(request):
-    data = {'title': 'Домашняя страница',
-            }
-    return render(request, 'account/home.html', data)
+    return render(request, 'account/home.html')
+
+
+def account(request):
+    pupils = Pupil.objects.filter(teacher=request.user)
+    courses = Cours.objects.filter(author=request.user)
+    return render(request, 'account/account.html', {'pupils': pupils, 'courses': courses})
 
 
 class PupilDetailView(DetailView):
@@ -68,8 +72,9 @@ def add_pupil(request):
     if request.method == 'POST':
         form = PupilForm(request.POST)
         if form.is_valid():
+            form.teacher = request.user
             form.save()
-            return redirect('home')
+            return redirect('account')
         else:
             error = 'Форма не верная'
 
@@ -86,8 +91,9 @@ def add_cours(request):
     if request.method == 'POST':
         form = CoursForm(request.POST)
         if form.is_valid():
+            form.author = request.user
             form.save()
-            return redirect('home')
+            return redirect('account')
         else:
             error = 'Форма не верная'
 

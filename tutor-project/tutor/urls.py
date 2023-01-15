@@ -14,6 +14,7 @@ urlpatterns = [
     path('login/', views.loginuser, name='login'),
 
     path('', views.home, name='home'),
+    path('account/', views.account, name='account'),
     path('addpupil/', views.add_pupil, name='add_pupil'),
     path('addcours/', views.add_cours, name='add_course'),
     path('pupil/<int:pk>', views.PupilDetailView.as_view(), name='pupil_detail'),

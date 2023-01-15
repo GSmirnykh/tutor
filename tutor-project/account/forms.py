@@ -1,5 +1,5 @@
 from .models import Pupil, Cours
-from django.forms import ModelForm, TextInput, Textarea, Select, IntegerField, NumberInput
+from django.forms import ModelForm, TextInput, Textarea, Select, NumberInput
 
 
 class PupilForm(ModelForm):
@@ -16,7 +16,7 @@ class PupilForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Фамилия'
             }),
-            'age': TextInput(attrs={
+            'age': NumberInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Возраст'
             }),
@@ -24,7 +24,7 @@ class PupilForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Представитель'
             }),
-            'phone': TextInput(attrs={
+            'phone': NumberInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Телефон'
             }),
@@ -36,6 +36,7 @@ class PupilForm(ModelForm):
                 Cours.course_id: Cours.title,
             })
         }
+
 
 class CoursForm(ModelForm):
     class Meta:
