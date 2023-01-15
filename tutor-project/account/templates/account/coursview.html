@@ -1,0 +1,11 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Информация о курсе{% endblock %}
+
+{% block content %}
+    <h1>{{ cours.title }}</h1>
+    <p>{{ cours.description }}</p>
+    <p>Продолжительность курса: {{ cours.lenght }} час(ов).</p>
+    <p>Стоимость индивидуального занятия: {{ cours.cost_individual }} руб.</p>
+    <p>Стоимость группового занятия: {{ cours.cost_group }} руб.</p>
+{% endblock %}
