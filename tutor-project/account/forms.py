@@ -1,5 +1,6 @@
 from .models import Pupil, Cours
-from django.forms import ModelForm, TextInput, Textarea, Select
+from django.forms import ModelForm, TextInput, Textarea, Select, IntegerField, NumberInput
+
 
 class PupilForm(ModelForm):
     class Meta:
@@ -34,4 +35,32 @@ class PupilForm(ModelForm):
             'course': Select(attrs={
                 Cours.course_id: Cours.title,
             })
+        }
+
+class CoursForm(ModelForm):
+    class Meta:
+        model = Cours
+        fields = ['title', 'description', 'lenght', 'cost_individual', 'cost_group']
+
+        widgets = {
+            'title': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Название'
+            }),
+            'description': Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Описание курса'
+            }),
+            'lenght': NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Продолжительность курса'
+            }),
+            'cost_individual': NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Стоимость индивидуального занятия'
+            }),
+            'cost_group': NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Стоимость группового занятия'
+            }),
         }
