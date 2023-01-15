@@ -10,6 +10,8 @@ urlpatterns = [
 
     #Auth
     path('signup/', views.signup, name='signup'),
+    path('logout/', views.logoutuser, name='logout'),
+    path('login/', views.loginuser, name='login'),
 
     path('', views.home, name='home'),
     path('addpupil/', views.add_pupil, name='add_pupil'),
