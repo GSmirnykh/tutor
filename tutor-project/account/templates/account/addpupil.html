@@ -1,0 +1,22 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Форма добавления ученика{% endblock %}
+
+{% block content %}
+<h1>Добавление ученика</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.name }}<br>
+  {{ form.surname }}<br>
+  {{ form.age }}<br>
+  {{ form.parents }}<br>
+  {{ form.phone }}<br>
+  Форма обучения: {{ form.education_form }}<br>
+  <br>
+  Курс: {{form.course}}<br>
+  <br>
+  <span>{{ error }}</span>
+  <button class="btn btn-success" type="submit">Добавить ученика</button>
+
+</form>
+{% endblock %}

@@ -28,7 +28,7 @@ class Pupil(models.Model):
     surname = models.CharField('Фамилия', max_length=30)
     age = models.CharField('Возраст', max_length=3, null=True)
     parents = models.TextField('Представитель')
-    phone = models.CharField('Контактный телефон', max_length=10)
+    phone = models.CharField('Контактный телефон', max_length=12)
     education_form = models.CharField('Форма обучения', max_length=50, choices=CHOISES, default='individual')
     course = models.ForeignKey(Cours, on_delete=models.CASCADE, null=True)
 
