@@ -72,8 +72,9 @@ def add_pupil(request):
     if request.method == 'POST':
         form = PupilForm(request.POST)
         if form.is_valid():
-            form.teacher = request.user
-            form.save()
+            pupil = form.save(commit=False)
+            pupil.teacher = request.user
+            pupil.save()
             return redirect('account')
         else:
             error = 'Форма не верная'
@@ -91,8 +92,9 @@ def add_cours(request):
     if request.method == 'POST':
         form = CoursForm(request.POST)
         if form.is_valid():
-            form.author = request.user
-            form.save()
+            cours = form.save(commit=False)
+            cours.author = request.user
+            cours.save()
             return redirect('account')
         else:
             error = 'Форма не верная'
