@@ -2,6 +2,7 @@ from .models import Pupil, Cours
 from django.forms import ModelForm, TextInput, Textarea, Select, NumberInput
 
 
+
 class PupilForm(ModelForm):
     class Meta:
         model = Pupil

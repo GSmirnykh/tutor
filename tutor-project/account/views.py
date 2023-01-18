@@ -46,7 +46,7 @@ def loginuser(request):
 
 
 def home(request):
-    return render(request, 'account/home.html')
+    return redirect('login')
 
 
 def account(request):
