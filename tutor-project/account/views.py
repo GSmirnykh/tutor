@@ -8,6 +8,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 
 
+def home(request):
+    return redirect('login')
+
+
 def signup(request):
     if request.method == 'GET':
         return render(request, 'account/signup.html', {'form': UserCreationForm()})
@@ -26,12 +30,6 @@ def signup(request):
             return render(request, 'account/signup.html', {'form': UserCreationForm(), 'error': 'Пароли не совпадают'})
 
 
-def logoutuser(request):
-    if request.method == 'POST':
-        logout(request)
-        return redirect('home')
-
-
 def loginuser(request):
     if request.method == 'GET':
         return render(request, 'account/login.html', {'form': AuthenticationForm()})
@@ -45,8 +43,10 @@ def loginuser(request):
             return redirect('account')
 
 
-def home(request):
-    return redirect('login')
+def logoutuser(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('home')
 
 
 def account(request):

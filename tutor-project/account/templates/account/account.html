@@ -11,14 +11,14 @@
 <p>Список учеников</p>
 <ul>
     {% for pupil in pupils %}
-    <li>{{ pupil.name }} {{ pupil.surname }}</li>
+    <li><a href="{% url 'pupil_detail' pupil.id %}">{{ pupil.name }} {{ pupil.surname }}</a></li>
     {% endfor %}
 </ul>
 
 <p>Список курсов</p>
 <ul>
     {% for cours in courses %}
-    <li>{{ cours.title }}</li>
+    <li><a href="{% url 'cours_detail' cours.id %}">{{ cours.title }}</a></li>
     {% endfor %}
 </ul>
 
