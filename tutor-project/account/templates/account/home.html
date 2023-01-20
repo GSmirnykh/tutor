@@ -4,6 +4,14 @@
 
 {% block content %}
 
-<h1>Добро пожаловать в личный кабинет репетитора.</h1>
-
+{% if user.is_authenticated %}
+<h1>Привет {{ user.username }}</h1>
+<a href="{% url 'account' %}">Войти в личный кабинет</a>
+    {% else %}
+<h1>Привет {{ user.username }}</h1>
+<a href="{% url 'login' %}">Войти</a>
+<br>
+<a href="{% url 'signup' %}">Зарегестрироваться</a>
+<br>
+{% endif %}
 {% endblock %}

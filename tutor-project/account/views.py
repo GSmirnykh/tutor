@@ -9,7 +9,7 @@ from django.contrib.auth import login, logout, authenticate
 
 
 def home(request):
-    return redirect('login')
+    return render(request, 'account/home.html')
 
 
 def signup(request):
