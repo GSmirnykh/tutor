@@ -4,9 +4,10 @@
 
 {% block content %}
     <h1>{{ pupil.name }} {{ pupil.surname }}</h1>
-    <p>{{ pupil.course }}</p>
-    <p>{{ pupil.parents }}</p>
-    <p>{{ pupil.phone }}</p>
+    <p>Возраст: {{ pupil.age }} лет</p>
+    <p>Курс: {{ pupil.course }}</p>
+    <p>Представитель: {{ pupil.parents }}</p>
+    <p>Контактный телефон: {{ pupil.phone }}</p>
 <br>
 <br>
 <a href="{% url 'edit_pupil' pupil.id %}">Редактировать информацию</a>
