@@ -1,5 +1,5 @@
 from django.db import IntegrityError
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PupilForm, CoursForm
 from django.views.generic import DetailView
 from .models import Pupil, Cours
@@ -107,9 +107,31 @@ def add_cours(request):
     return render(request, 'account/addcours.html', data)
 
 
-def edit_cours(request):
-    return render(request, 'account/editcours.html')
+def edit_cours(request, pk):
+    cours = get_object_or_404(Cours, pk=pk)
+    if request.method == 'POST':
+        form = CoursForm(data=request.POST, instance=cours)
+        if form.is_valid():
+            cours = form.save(commit=False)
+            cours.author = request.user
+            cours.save()
+            return redirect('cours_detail', pk=cours.pk)
+    else:
+        form = CoursForm(instance=cours)
+    context = {'form': form}
+    return render(request, 'account/editcours.html', context)
 
 
-def edit_pupil(request):
-    return render(request, 'account/editpupil.html')
+def edit_pupil(request, pk):
+    pupil = get_object_or_404(Pupil, pk=pk)
+    if request.method == 'POST':
+        form = PupilForm(data=request.POST, instance=pupil)
+        if form.is_valid():
+            pupil = form.save(commit=False)
+            pupil.teacher = request.user
+            pupil.save()
+            return redirect('pupil_detail', pk=pupil.pk)
+    else:
+        form = PupilForm(instance=pupil)
+    context = {'form': form}
+    return render(request, 'account/editpupil.html', context)

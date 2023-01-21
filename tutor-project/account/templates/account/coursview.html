@@ -10,5 +10,5 @@
     <p>Стоимость группового занятия: {{ cours.cost_group }} руб.</p>
 <br>
 <br>
-<a href="{% url 'edit_cours' %}">Редактировать информацию</a>
+<a href="{% url 'edit_cours' cours.id %}">Редактировать информацию</a>
 {% endblock %}

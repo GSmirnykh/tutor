@@ -9,5 +9,5 @@
     <p>{{ pupil.phone }}</p>
 <br>
 <br>
-<a href="{% url 'edit_pupil' %}">Редактировать информацию</a>
+<a href="{% url 'edit_pupil' pupil.id %}">Редактировать информацию</a>
 {% endblock %}
