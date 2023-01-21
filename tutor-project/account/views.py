@@ -105,3 +105,11 @@ def add_cours(request):
         'error': error
     }
     return render(request, 'account/addcours.html', data)
+
+
+def edit_cours(request):
+    return render(request, 'account/editcours.html')
+
+
+def edit_pupil(request):
+    return render(request, 'account/editpupil.html')

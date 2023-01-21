@@ -1,0 +1,19 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Форма редактирования курса{% endblock %}
+
+{% block content %}
+<div>
+<h1>Редактирование курса курса</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.title }}<br>
+    {{ form.description }}<br>
+    {{ form.lenght }}<br>
+    {{ form.cost_individual }}<br>
+    {{ form.cost_group }}<br>
+    <span>{{ error }}</span>
+    <button class="btn btn-success" type="submit">Сохранить изменения</button>
+  </form>
+</div>>
+{% endblock %}

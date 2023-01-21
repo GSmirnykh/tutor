@@ -1,0 +1,23 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Редактирование информации о ученике{% endblock %}
+
+{% block content %}
+<div>
+<h1>Редактирование информации о ученике</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.name }}<br>
+    {{ form.surname }}<br>
+    {{ form.age }}<br>
+    {{ form.parents }}<br>
+    {{ form.phone }}<br>
+    Форма обучения: {{ form.education_form }}<br>
+    <br>
+    Курс: {{form.course}}<br>
+    <br>
+    <span>{{ error }}</span>
+    <button class="btn btn-success" type="submit">Сохранить изменения</button>
+  </form>
+</div>>
+{% endblock %}

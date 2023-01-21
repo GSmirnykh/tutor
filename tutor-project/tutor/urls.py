@@ -17,6 +17,8 @@ urlpatterns = [
     path('account/', views.account, name='account'),
     path('addpupil/', views.add_pupil, name='add_pupil'),
     path('addcours/', views.add_cours, name='add_course'),
+    path('editpupil/', views.edit_pupil, name='edit_pupil'),
+    path('editcours/', views.edit_cours, name='edit_cours'),
 
     path('pupil/<int:pk>', views.PupilDetailView.as_view(), name='pupil_detail'),
     path('cours/<int:pk>', views.CoursDetailView.as_view(), name='cours_detail'),
