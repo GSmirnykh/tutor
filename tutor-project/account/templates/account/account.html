@@ -21,7 +21,8 @@
     <li><a href="{% url 'cours_detail' cours.id %}">{{ cours.title }}</a></li>
     {% endfor %}
 </ul>
-
-
+<div class="calendar">
+{{ calendar|safe }}
+</div>
 
 {% endblock %}

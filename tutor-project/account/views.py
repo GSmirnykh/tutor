@@ -5,6 +5,9 @@ from django.db import IntegrityError
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import DetailView
 
+import calendar
+from datetime import datetime
+
 from .forms import CoursForm, PupilForm
 from .models import Cours, Pupil
 
@@ -51,9 +54,12 @@ def logoutuser(request):
 
 
 def account(request):
+    c = calendar.HTMLCalendar()
+    html_out = c.formatmonth(datetime.today().year, datetime.today().month)
+
     pupils = Pupil.objects.filter(teacher=request.user)
     courses = Cours.objects.filter(author=request.user)
-    return render(request, 'account/account.html', {'pupils': pupils, 'courses': courses})
+    return render(request, 'account/account.html', {'pupils': pupils, 'courses': courses, 'calendar': html_out})
 
 
 class PupilDetailView(DetailView):
