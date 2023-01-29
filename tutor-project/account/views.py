@@ -1,11 +1,12 @@
-from django.db import IntegrityError
-from django.shortcuts import render, redirect, get_object_or_404
-from .forms import PupilForm, CoursForm
-from django.views.generic import DetailView
-from .models import Pupil, Cours
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login, logout, authenticate
+from django.db import IntegrityError
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import DetailView
+
+from .forms import CoursForm, PupilForm
+from .models import Cours, Pupil
 
 
 def home(request):

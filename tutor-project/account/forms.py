@@ -1,6 +1,6 @@
-from .models import Pupil, Cours
-from django.forms import ModelForm, TextInput, Textarea, Select, NumberInput
+from django.forms import ModelForm, NumberInput, Select, Textarea, TextInput
 
+from .models import Cours, Pupil
 
 
 class PupilForm(ModelForm):

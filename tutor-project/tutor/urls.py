@@ -1,14 +1,14 @@
-from django.contrib import admin
-from django.urls import path
-from account import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path
 
+from account import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    #Auth
+    # Auth
     path('signup/', views.signup, name='signup'),
     path('logout/', views.logoutuser, name='logout'),
     path('login/', views.loginuser, name='login'),
