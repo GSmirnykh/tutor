@@ -3,17 +3,17 @@
 {% block title %}Регистрация{% endblock %}
 
 {% block content %}
+<div class="container">    
+        <h1>Вход</h1>    
+    <h2>{{ error }}</h2>
 
-<h1>Вход</h1>
+    <form method="POST">
+        {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
 
-<h2>{{ error }}</h2>
+    <a href="{% url 'signup' %}">Нет аккаунта?</a>
 
-<form method="POST">
-    {% csrf_token %}
-{{ form.as_p }}
-<button type="submit">Войти</button>
-</form>
-
-<a href="{% url 'signup' %}">Нет аккаунта?</a>
-
-{% endblock %}
+    {% endblock %}
+</div>

@@ -4,25 +4,34 @@
 
 {% block content %}
 
-<a href="{% url 'add_pupil' %}">Добавить ученика</a>
-<br>
-<a href="{% url 'add_course' %}">Добавить курс</a>
-<br>
-<p>Список учеников</p>
-<ul>
-    {% for pupil in pupils %}
-    <li><a href="{% url 'pupil_detail' pupil.id %}">{{ pupil.name }} {{ pupil.surname }}</a></li>
-    {% endfor %}
-</ul>
-
-<p>Список курсов</p>
-<ul>
-    {% for cours in courses %}
-    <li><a href="{% url 'cours_detail' cours.id %}">{{ cours.title }}</a></li>
-    {% endfor %}
-</ul>
-<div class="calendar">
-{{ calendar|safe }}
+<div class="container text-center">    
+    <div class="row">
+        <div class="col-6 ">
+            <h2>Список учеников</h2>
+            <ul class="list-group">
+                {% for pupil in pupils %}
+                <li class="list-group-item"><a href="{% url 'pupil_detail' pupil.id %}">{{ pupil.name }} {{ pupil.surname }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6">
+            <h2>Список курсов</h2>
+            <ul class="list-group">
+                {% for cours in courses %}
+                <li class="list-group-item"><a href="{% url 'cours_detail' cours.id %}">{{ cours.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-6">
+            <a href="{% url 'add_pupil' %}" class="btn btn-secondary">Добавить ученика</a>
+        </div>
+        <div class="col-6">
+            <a href="{% url 'add_course' %}" class="btn btn-secondary">Добавить курс</a>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
+
