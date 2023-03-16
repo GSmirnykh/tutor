@@ -3,12 +3,14 @@
 {% block title %}Информация об ученике{% endblock %}
 
 {% block content %}
-    <h1>{{ pupil.name }} {{ pupil.surname }}</h1>
-    <p>Возраст: {{ pupil.age }} лет</p>
-    <p>Курс: {{ pupil.course }}</p>
-    <p>Представитель: {{ pupil.parents }}</p>
-    <p>Контактный телефон: {{ pupil.phone }}</p>
-<br>
-<br>
-<a href="{% url 'edit_pupil' pupil.id %}">Редактировать информацию</a>
+<div class="container">
+        <h1>{{ pupil.name }} {{ pupil.surname }}</h1>
+        <p>Возраст: {{ pupil.age }} лет</p>
+        <p>Курс: {{ pupil.course }}</p>
+        <p>Представитель: {{ pupil.parents }}</p>
+        <p>Контактный телефон: {{ pupil.phone }}</p>
+    <br>
+    <br>
+    <a href="{% url 'edit_pupil' pupil.id %}">Редактировать информацию</a>
+</div>
 {% endblock %}

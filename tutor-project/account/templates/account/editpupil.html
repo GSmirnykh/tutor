@@ -3,8 +3,8 @@
 {% block title %}Редактирование информации о ученике{% endblock %}
 
 {% block content %}
-<div>
-<h1>Редактирование информации о ученике</h1>
+<div class="container">
+<h1 class="text-center">Редактирование информации о ученике</h1>
   <form method="POST">
     {% csrf_token %}
     {{ form.name }}<br>

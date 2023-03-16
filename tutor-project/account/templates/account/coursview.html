@@ -3,12 +3,14 @@
 {% block title %}Информация о курсе{% endblock %}
 
 {% block content %}
-    <h1>{{ cours.title }}</h1>
-    <p>{{ cours.description }}</p>
-    <p>Продолжительность курса: {{ cours.lenght }} час(ов).</p>
-    <p>Стоимость индивидуального занятия: {{ cours.cost_individual }} руб.</p>
-    <p>Стоимость группового занятия: {{ cours.cost_group }} руб.</p>
-<br>
-<br>
-<a href="{% url 'edit_cours' cours.id %}">Редактировать информацию</a>
+    <div class="container">
+        <h1>{{ cours.title }}</h1>
+        <p>{{ cours.description }}</p>
+        <p>Продолжительность курса: {{ cours.lenght }} час(ов).</p>
+        <p>Стоимость индивидуального занятия: {{ cours.cost_individual }} руб.</p>
+        <p>Стоимость группового занятия: {{ cours.cost_group }} руб.</p>
+    <br>
+    <br>
+    <a href="{% url 'edit_cours' cours.id %}">Редактировать информацию</a>
+    </div>
 {% endblock %}

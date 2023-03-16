@@ -3,8 +3,8 @@
 {% block title %}Форма добавления ученика{% endblock %}
 
 {% block content %}
-<div>
-<h1>Добавление ученика</h1>
+<div class="container">
+<h1 class="text-center">Добавление ученика</h1>
   <form method="POST">
     {% csrf_token %}
     {{ form.name }}<br>

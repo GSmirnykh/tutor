@@ -6,32 +6,29 @@
 
 <div class="container text-center">    
     <div class="row">
-        <div class="col-6 ">
+        <div class="col-4 ">
             <h2>Список учеников</h2>
             <ul class="list-group">
                 {% for pupil in pupils %}
                 <li class="list-group-item"><a href="{% url 'pupil_detail' pupil.id %}">{{ pupil.name }} {{ pupil.surname }}</a></li>
                 {% endfor %}
-            </ul>
-        </div>
-        <div class="col-6">
-            <h2>Список курсов</h2>
-            <ul class="list-group">
-                {% for cours in courses %}
-                <li class="list-group-item"><a href="{% url 'cours_detail' cours.id %}">{{ cours.title }}</a></li>
-                {% endfor %}
+                <a href="{% url 'add_pupil' %}" class="btn btn-primary">Добавить ученика</a>        
             </ul>
         </div>
     </div>
     <br><br>
     <div class="row">
-        <div class="col-6">
-            <a href="{% url 'add_pupil' %}" class="btn btn-secondary">Добавить ученика</a>
-        </div>
-        <div class="col-6">
-            <a href="{% url 'add_course' %}" class="btn btn-secondary">Добавить курс</a>
+        <div class="col-4">
+            <h2>Список курсов</h2>
+            <ul class="list-group">
+                {% for cours in courses %}
+                <li class="list-group-item"><a href="{% url 'cours_detail' cours.id %}">{{ cours.title }}</a></li>
+                {% endfor %}
+                <a href="{% url 'add_course' %}" class="btn btn-primary">Добавить курс</a>
+            </ul>
         </div>
     </div>
+    
 </div>
 {% endblock %}
 
